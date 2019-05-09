@@ -58,7 +58,7 @@ async function upload(userTag){
   
         T.post('statuses/update', {
           media_ids: new Array(data.media_id_string),
-          status:'success by'+userTag+' In @plugxtalk'
+          status:'SUCCESS by '+userTag+' In @plugxtalk'
         },
           function(err, data, response) {
             if (err){
