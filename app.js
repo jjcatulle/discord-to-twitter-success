@@ -42,7 +42,7 @@ async function saveImage(user,url) {
 
 async function upload(userTag){
     console.log('Opening an image...');
-    var image_path = './success.jpg',
+    var image_path =userTag+'.jpg',
         b64content = fs.readFileSync(image_path, { encoding: 'base64' });
   
     console.log('Uploading an image...');
