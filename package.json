@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
+    "await-timeout": "^0.3.0",
     "discord.js": "^11.4.2",
     "http": "0.0.0",
     "https": "^1.0.0",

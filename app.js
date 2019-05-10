@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const Timeout=require("await-timeout");
 const http = require('https');
 const fs = require('fs');
 var Twit = require('twit');
@@ -22,6 +23,7 @@ client.on('message', async msg => {
         const Attachment = await (msg.attachments).array();
         const imageUrl =  await Attachment[0].url;
         await saveImage(userTag,imageUrl);
+        await Timeout.set(1000);
         await upload(userTag);
     }
 
@@ -31,19 +33,20 @@ client.on('message', async msg => {
 });
 
 
-client.login('NTc2MTg2MTQ1ODE0MDg1NjMy.XNS1PA.701iQAYoAbJzGlIqnNx-racyRC8');
+// client.login('NTc2MTg2MTQ1ODE0MDg1NjMy.XNS1PA.701iQAYoAbJzGlIqnNx-racyRC8');
+client.login('NTc0NzMyMzcyMzczNjY3ODc1.XM9wGw.QORqwExIOzq4kln6Rck-quvazwE');
+
 
 async function saveImage(user,url) {
-    const file = fs.createWriteStream(user+".jpg");
-    const request = http.get(url, function (response) {
+    const file = await fs.createWriteStream(`success.jpg`);
+    const request =await http.get(url, function (response) {
         response.pipe(file);
     });
 }
-
-async function upload(userTag){
+async function upload(user){
     console.log('Opening an image...');
-    var image_path =userTag+'.jpg',
-        b64content = fs.readFileSync(image_path, { encoding: 'base64' });
+    var image_path = await `./success.jpg`,
+        b64content = await fs.readFileSync(image_path, { encoding: 'base64' });
   
     console.log('Uploading an image...');
   
@@ -58,7 +61,7 @@ async function upload(userTag){
   
         T.post('statuses/update', {
           media_ids: new Array(data.media_id_string),
-          status:'SUCCESS by '+userTag+' In @plugxtalk'
+          status:`SUCCESS by ${user} In @plugxtalk`
         },
           function(err, data, response) {
             if (err){
