@@ -17,18 +17,22 @@ client.on('ready', () => {
 client.on('message', async msg => {
 //    var userTag= msg.member.user.tag;
 //    console.log(userTag);
+const channel =msg.channel.id
+if (channel === '494707086211678208'){
+
     async function discordTotweet(){
+    
         const messageContent = await msg.content;
         var userTag= await msg.member.user.tag;
         const Attachment = await (msg.attachments).array();
         const imageUrl =  await Attachment[0].url;
-        await saveImage(userTag,imageUrl);
-        await Timeout.set(1000);
+        await saveImage(imageUrl);
+        await Timeout.set(10000);
         await upload(userTag);
+        // console.log('test')
+        }
+        discordTotweet();
     }
-
-    discordTotweet();
-
 
 });
 
@@ -37,7 +41,7 @@ client.login('NTc2MTg2MTQ1ODE0MDg1NjMy.XNS1PA.701iQAYoAbJzGlIqnNx-racyRC8');
 //client.login('NTc0NzMyMzcyMzczNjY3ODc1.XM9wGw.QORqwExIOzq4kln6Rck-quvazwE');
 
 
-async function saveImage(user,url) {
+async function saveImage(url) {
     const file = await fs.createWriteStream(`success.jpg`);
     const request =await http.get(url, function (response) {
         response.pipe(file);
