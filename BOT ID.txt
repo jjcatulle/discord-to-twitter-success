@@ -1,5 +1,0 @@
-id:574732372373667875
-
-link:https://discordapp.com/api/oauth2/authorize?client_id=574732372373667875&scope=bot&permissions=1
-
-token:NTc0NzMyMzcyMzczNjY3ODc1.XM9wGw.QORqwExIOzq4kln6Rck-quvazwE

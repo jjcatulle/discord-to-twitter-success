@@ -1,5 +1,5 @@
 {
-  "name": "Discord-bot-2",
+  "name": "discord-to-twitter-success",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -15,6 +15,6 @@
     "start": "node app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jean Catulle",
   "license": "ISC"
 }

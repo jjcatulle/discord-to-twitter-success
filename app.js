@@ -2,8 +2,8 @@ const Discord = require("discord.js");
 const Timeout=require("await-timeout");
 const http = require('https');
 const fs = require('fs');
-var Twit = require('twit');
-// Pulling all my twitter account info from another file
+const Twit = require('twit');
+// Pulling all info from another file
 var config = require('./config.js');
 var T = new Twit(config);
 const client = new Discord.Client();
@@ -15,8 +15,7 @@ client.on('ready', () => {
 //chevk for specific message
 
 client.on('message', async msg => {
-//    var userTag= msg.member.user.tag;
-//    console.log(userTag);
+
 const channel =msg.channel.id
 if (channel === '494707086211678208'){
 
@@ -37,8 +36,7 @@ if (channel === '494707086211678208'){
 });
 
 
-client.login('NTc2MTg2MTQ1ODE0MDg1NjMy.XNS1PA.701iQAYoAbJzGlIqnNx-racyRC8');
-//client.login('NTc0NzMyMzcyMzczNjY3ODc1.XM9wGw.QORqwExIOzq4kln6Rck-quvazwE');
+client.login(config.discord);
 
 
 async function saveImage(url) {
@@ -60,9 +58,7 @@ async function upload(user){
         console.log(err);
       }
       else{
-        console.log('Image uploaded!');
-        console.log('Now tweeting it...');
-  
+        console.log('Image uploaded!');  
         T.post('statuses/update', {
           media_ids: new Array(data.media_id_string),
           status:`SUCCESS by ${user} In @plugxtalk`
