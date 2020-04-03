@@ -3,5 +3,6 @@ module.exports = {
     consumer_secret:'',
     access_token:'',
     access_token_secret:'',
-    discord:''
+    discord_token:'',
+    discord_channel_id:''
   }

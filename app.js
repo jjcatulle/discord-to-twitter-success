@@ -17,7 +17,7 @@ client.on('ready', () => {
 client.on('message', async msg => {
 
 const channel =msg.channel.id
-if (channel === '494707086211678208'){
+if (channel === config.discord_channel_id){
 
     async function discordTotweet(){
     
@@ -36,7 +36,7 @@ if (channel === '494707086211678208'){
 });
 
 
-client.login(config.discord);
+client.login(config.discord_token);
 
 
 async function saveImage(url) {
